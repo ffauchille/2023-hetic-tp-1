@@ -3,17 +3,17 @@
 Ce TP cible les étudiants de l'école HETIC pour le cours d'infrastructure.
 
 Dans ce TP, vous allez:
-- apprendre comment accéder à une machine distante en utilisant le protocole `ssh`
-- exposer une page web sur internet en utilisant [Nginx](https://www.nginx.com/)
+- Accéder à un serveur distant en utilisant le protocole `ssh`
+- Exposer une page web sur internet en utilisant [Nginx](https://www.nginx.com/)
 
+## Étape 1 - Connectez-vous à votre serveur distant
 
-## Étape 1 - Connectez-vous à votre serveur
-
-**Objectif**: S'assurrer que vous pouvez accéder en sécurité à votre serveur distant mise à disposition pour ce TP depuis votre poste de travail.
+**Objectif**: S'assurrer que vous pouvez accéder en sécurité à votre serveur distant, mis à disposition pour ce TP, depuis votre poste de travail.
 
 Pour cela:
 - Téléchargez la clé SSH fournie par votre professeur
 - Une fois téléchargée, tapez la commande suivante:
+
 ```sh
 # Depuis votre terminal favori
 
@@ -25,13 +25,14 @@ $ ssh -i <chemin_vers_votre_cle_ssh_privee> ubuntu@<etudiant>.floless.fr
 # ...
 # Vous devriez être connecté
 ```
+
 > Note: assurez-vous des droits appliqués à votre clé SSH privée(qu'ils ne soient pas trop ouverts):
 > tapez `$ chmod 400 <chemin_vers_votre_cle_ssh_privee>` pour avoir les droits correctement configurés sur votre clé
 
 
-## Étape 2 - Déployer votre application minimale
+## Étape 2 - Déployez votre application minimale
 
-**Objectif**: Déployer une simple page web sur internet depuis votre machine de TP.
+**Objectif**: Déployer une simple page web sur internet depuis un serveur fournit pour le TP.
 
 Il s'agit d'écrire une simple page `html` avec votre prénom en titre et votre slogan en texte.
 
@@ -44,7 +45,7 @@ sudo apt update
 sudo apt install nginx
 ```
 
-- Assurez-vous l'accès à la page par défaut `Welcome to nginx!` en visitant l'adresse `http://<etudiant>.floless.fr` depuis votre navigateur(en remplaçant `<etudiant>` par votre identifiant)
+- Assurez-vous de l'accès à la page par défaut `Welcome to nginx!` en visitant l'adresse `http://<etudiant>.floless.fr` depuis votre navigateur(en remplaçant `<etudiant>` par votre identifiant)
 - Sur votre poste de travail, créez un nouveau fichier `index.html` file avec:
 
 ```html
@@ -67,7 +68,7 @@ En remplaçant:
 - `Prénom` par votre prénom
 - `Slogan` par votre slogan d'accroche (soyez inventifs!)
 
-Assurez-vous que votre page HTML est correctement rendu depuis votre poste de travail (en l'ouvrant simplement avec votre navigateur ou en tapant `file://<chemin_vers_votre_fichier_html>`)
+Assurez-vous que votre page `html` est correctement rendue depuis votre poste de travail (en l'ouvrant simplement avec votre navigateur ou en tapant `file://<chemin_vers_votre_fichier_html>` dans la barre d'adresse).
 
 - Déployez votre fichier `index.html` en remplaçant le fichier par défaut d'`Nginx` sur votre machine distante:
 
@@ -87,4 +88,4 @@ sudo cp /home/ubuntu/index.html /var/www/html/index.nginx-debian.html
 
 - Avec votre navigateur, vous devriez accéder à votre page web à l'adresse `http://<etudiant>.floless.fr`
 
-Bravo, vous avez déployer une version minimale d'une application web!
+Bravo, vous avez déployé une version minimale d'une application web!
